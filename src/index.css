@@ -25,7 +25,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-input {
+input, select {
   user-select: none; /* Prevents text selection */
   outline: none; /* Removes focus outline */
 }

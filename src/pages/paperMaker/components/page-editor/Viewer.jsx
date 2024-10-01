@@ -1,0 +1,56 @@
+import React, { useEffect, useRef, useState } from 'react'
+import Box from './Box';
+import BoxManager from './BoxManager';
+
+export default function Viewer({ pageSize, pageContent, selectedBoxIndexes, setSelectedBoxIndexes }) {
+
+    const viewer = useRef();
+    const [viwerHeight, setViewerHeight] = useState();
+    const [viwerWidth, setViewerWidth] = useState();
+
+    const [pageRatio, setPageRatio] = useState();
+    const [viwerRatio, setViewerRatio] = useState();
+
+    useEffect(() => {
+        setViewerHeight(viewer.current?.clientHeight);
+        setViewerWidth(viewer.current?.clientWidth);
+
+        setPageRatio(pageSize?.width / pageSize?.height);
+        setViewerRatio(viewer.current?.clientWidth / viewer.current?.clientHeight);
+    }, [viewer.current, pageSize]);
+
+    return (
+        <div className='w-1/2 h-full'>
+            <div className='bg-blue-50 flex justify-center items-center overflow-scroll bottom-0 fixed w-1/2 h-[calc(100%-3.5rem)]'
+                // onWheel={handleZoom}
+            >
+                <div className='w-[95%] h-[95%] flex justify-center items-center p-0'
+                    ref={viewer}
+                >
+                    <div className='bg-white flex justify-center items-center'
+                        id='paper'
+                        style={{
+                            height: pageSize == 1? Math.min(viwerHeight, viwerWidth) :
+                                (pageRatio < viwerRatio? viwerHeight :
+                                viwerWidth / pageRatio),
+                            width: pageSize == 1? Math.min(viwerHeight, viwerWidth) :
+                                (pageRatio < viwerRatio? viwerHeight * pageRatio :
+                                viwerWidth)
+                        }}
+                    >
+                        <BoxManager boxes={pageContent} indexes={[]} selectedBoxIndexes={selectedBoxIndexes} setSelectedBoxIndexes={setSelectedBoxIndexes} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+/**
+ * const [scale, setScale] = useState(1);
+    const handleZoom = (e) => {
+        e.preventDefault();
+        const delta = e.deltaY > 0 ? -0.01 : 0.01; // Zoom in or out
+        setScale((prevScale) => Math.max(prevScale + delta, 0)); // Limit zoom scale between 0.5x and 3x
+    }
+ */

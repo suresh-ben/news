@@ -1,7 +1,10 @@
 import { useState } from 'react'
-import Editor from './components/Editor'
-import Viewer from './components/Viewer'
+import Editor from './components/page-editor/Editor'
+import Viewer from './components/page-editor/Viewer'
 import Navbar from '../../components/Navbar';
+
+import PDF from './components/pdf/index';
+import { PDFViewer } from '@react-pdf/renderer';
 
 export default function Index() {
 
@@ -22,12 +25,18 @@ export default function Index() {
     const [selectedBoxIndexes, setSelectedBoxIndexes] = useState([]);
 
     return (
-        <div className='h-full w-full flex flex-col'>
-            <Navbar />
-            <div className='flex-1 w-full flex'>
-                <Viewer pageSize={pageSize} pageContent={pageContent} selectedBoxIndexes={selectedBoxIndexes} setSelectedBoxIndexes={setSelectedBoxIndexes} />
-                <Editor setPageSize={setPageSize} pageContent={pageContent} setPageContent={setPageContent} selectedBoxIndexes={selectedBoxIndexes} setSelectedBoxIndexes={setSelectedBoxIndexes} />
+        <>
+            <div className='h-full w-full flex flex-col'>
+                <Navbar />
+                <div className='flex-1 w-full flex'>
+                    <Viewer pageSize={pageSize} pageContent={pageContent} selectedBoxIndexes={selectedBoxIndexes} setSelectedBoxIndexes={setSelectedBoxIndexes} />
+                    <Editor pageSize={pageSize} setPageSize={setPageSize} pageContent={pageContent} setPageContent={setPageContent} selectedBoxIndexes={selectedBoxIndexes} setSelectedBoxIndexes={setSelectedBoxIndexes} />
+                </div>
             </div>
-        </div>
+
+            {/* <div className='p-5 h-full'>
+                <PDF pageContent={pageContent} pageSize={pageSize} selectedBoxIndexes={selectedBoxIndexes} />
+            </div> */}
+        </>
     )
 }
