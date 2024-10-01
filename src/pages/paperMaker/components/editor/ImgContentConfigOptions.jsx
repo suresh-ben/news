@@ -69,9 +69,10 @@ export default function ImgContentConfigOptions({ pageContent, setPageContent, s
                         <div className='w-1/2 flex'>
                             <input type="number" 
                                 className='w-[75%] text-black text-right' 
+                                value={parseFloat(selectedBoxOptions?.content?.radius == undefined? 0 : selectedBoxOptions?.content?.radius)}
                                 onChange={(e) => {
                                     const value = e.target.value;
-                                    updateContentType('radius', value)
+                                    updateContentType('radius', value || 0)
                                 }}   
                             />
                             <p className='ml-2 text-gray-500'>%</p>
@@ -84,6 +85,7 @@ export default function ImgContentConfigOptions({ pageContent, setPageContent, s
                             <input 
                                 type="color" 
                                 className='w-full text-black text-right' 
+                                value={selectedBoxOptions.content?.backgroundColor || '#ffffff'}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('backgroundColor', value)
@@ -99,6 +101,7 @@ export default function ImgContentConfigOptions({ pageContent, setPageContent, s
                         <div className='w-1/2 flex'>
                             <input type="number" 
                                 className='w-[75%] text-black text-right' 
+                                value={parseFloat(selectedBoxOptions?.content?.opacity == undefined? 100 : selectedBoxOptions?.content?.opacity*100)}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('opacity', (value/100))
@@ -113,9 +116,10 @@ export default function ImgContentConfigOptions({ pageContent, setPageContent, s
                         <div className='w-1/2 flex'>
                             <input type="number" 
                                 className='w-[75%] text-black text-right' 
+                                value={parseFloat(selectedBoxOptions?.content?.borderWidth || 0)}
                                 onChange={(e) => {
                                     const value = e.target.value;
-                                    updateContentType('borderWidth', value)
+                                    updateContentType('borderWidth', value || 0)
                                 }}   
                             />
                             <p className='ml-2 text-gray-500'>px</p>
@@ -128,6 +132,7 @@ export default function ImgContentConfigOptions({ pageContent, setPageContent, s
                             <input 
                                 type="color" 
                                 className='w-full text-black text-right' 
+                                value={selectedBoxOptions.content?.borderColor || '#ffffff'}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('borderColor', value)

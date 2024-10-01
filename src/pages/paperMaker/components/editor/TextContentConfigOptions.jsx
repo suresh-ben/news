@@ -64,9 +64,10 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                         <div className='w-1/2 flex'>
                             <input type="number" 
                                 className='w-[75%] text-black text-right' 
+                                value={parseFloat(selectedBoxOptions.content?.fontSize == undefined? 1 : selectedBoxOptions.content?.fontSize)}
                                 onChange={(e) => {
                                     const value = e.target.value;
-                                    updateContentType('fontSize', value);
+                                    updateContentType('fontSize', value == ''? '00' : value);
                                 }}   
                             />
                             <p className='ml-2 text-gray-500'>rem</p>
@@ -79,6 +80,7 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                             <input 
                                 type="color" 
                                 className='w-full text-black text-right' 
+                                value={selectedBoxOptions.content?.backgroundColor || '#ffffff'}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('backgroundColor', value);
@@ -92,9 +94,10 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                         <div className='w-1/2 flex'>
                             <input type="number" 
                                 className='w-[75%] text-black text-right' 
+                                value={parseFloat(selectedBoxOptions?.content?.radius == undefined? 0 : selectedBoxOptions?.content?.radius)}
                                 onChange={(e) => {
                                     const value = e.target.value;
-                                    updateContentType('radius', value);
+                                    updateContentType('radius', value || 0);
                                 }}   
                             />
                             <p className='ml-2 text-gray-500'>%</p>
@@ -106,9 +109,10 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                         <div className='w-1/2 flex'>
                             <input type="number" 
                                 className='w-[75%] text-black text-right' 
+                                value={parseFloat(selectedBoxOptions?.content?.borderWidth || 0)}
                                 onChange={(e) => {
                                     const value = e.target.value;
-                                    updateContentType('borderWidth', value);
+                                    updateContentType('borderWidth', value || 0);
                                 }}   
                             />
                             <p className='ml-2 text-gray-500'>px</p>
@@ -118,34 +122,41 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
 
                 <div className='w-1/2 '>
                     <div className='w-full mb-2 flex'>
-                        <p className='w-1/2'>Line spacing:</p>
-                        <div className='w-1/2 flex'>
-                            <input type="number" 
-                                className='w-[75%] text-black text-right' 
-                                onChange={(e) => {
-                                    const value = e.target.value;
-                                    updateContentType('lineHeight', value);
-                                }}   
-                            />
-                            <p className='ml-2 text-gray-500'>rem</p>
-                        </div>
-                    </div>
-
-                    <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Font weight:</p>
                         <div className='w-1/2 flex'>
                             <select name="" id=""
                                 className='w-full text-black text-right'
+                                value={selectedBoxOptions.content?.fontWeight || "400"}
                                 onChange={(e) => {
                                     const value = e.target.value;
+                                    console.log(value);
+                                    updateContentType('fontWeight', value == ''? '00' : value);
                                 }}   
                             >
-                                <option value="">Extra thin</option>
-                                <option value="">Thin</option>
-                                <option value="">Normal</option>
-                                <option value="">Semi bold</option>
-                                <option value="">Bold</option>
+                                <option value="100">Hairline</option>
+                                <option value="200">Extra Light</option>
+                                <option value="300">Light</option>
+                                <option value="400">Normal</option>
+                                <option value="500">Medium</option>
+                                <option value="600">Semi bold</option>
+                                <option value="700">Bold</option>
+                                <option value="900">Super bold</option>
                             </select>
+                        </div>
+                    </div>
+
+                    <div className='w-full mb-2 flex'>
+                        <p className='w-1/2'>Line spacing:</p>
+                        <div className='w-1/2 flex'>
+                            <input type="number" 
+                                className='w-[75%] text-black text-right' 
+                                value={parseFloat(selectedBoxOptions.content?.lineHeight == undefined? 1 : selectedBoxOptions.content?.lineHeight)}
+                                onChange={(e) => {
+                                    const value = e.target.value;
+                                    updateContentType('lineHeight', value == ''? '00' : value);
+                                }}   
+                            />
+                            <p className='ml-2 text-gray-500'>rem</p>
                         </div>
                     </div>
 
@@ -155,6 +166,7 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                             <input 
                                 type="color" 
                                 className='w-full text-black text-right' 
+                                value={selectedBoxOptions.content?.color || '#ffffff'}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('color', value)
@@ -168,7 +180,7 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                         {/* w-[37.5%] */}
                         <div className='w-1/2 flex justify-between'>
                             <button className='' onClick={() => updateContentType('textAlign', TEXT_ALIGN_TYPES.LEFT)}>
-                                <img src={selectedBoxOptions.content?.textAlign === TEXT_ALIGN_TYPES.LEFT? boldTextLeft : textLeft} alt="" className='h-[1rem]' />
+                                <img src={(selectedBoxOptions.content?.textAlign === TEXT_ALIGN_TYPES.LEFT || !selectedBoxOptions.content?.textAlign)? boldTextLeft : textLeft} alt="" className='h-[1rem]' />
                             </button>
 
                             <button className='' onClick={() => updateContentType('textAlign', TEXT_ALIGN_TYPES.CENTER)}>
@@ -191,6 +203,7 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                             <input 
                                 type="color" 
                                 className='w-full text-black text-right' 
+                                value={selectedBoxOptions.content?.borderColor || '#ffffff'}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('borderColor', value)
@@ -206,6 +219,7 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                     <textarea 
                         type="color" 
                         className='w-full text-black min-h-[7rem]' 
+                        value={selectedBoxOptions.content?.text || ''}
                         onChange={(e) => {
                             const value = e.target.value;
                             updateContentType('text', value);

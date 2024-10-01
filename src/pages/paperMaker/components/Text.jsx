@@ -6,6 +6,8 @@ export default function Text({ content }) {
             className='w-full'
             style={{
                 fontSize: `${content.fontSize || 1}rem`,
+                fontWeight: `${content.fontWeight || '400'}`,
+                // fontWeight: 'bolder',
                 backgroundColor: content.backgroundColor,
                 color: content.color || 'black',
                 textAlign: content.textAlign,

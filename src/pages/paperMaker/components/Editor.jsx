@@ -23,7 +23,7 @@ export default function Editor({ setPageSize, pageContent, setPageContent, selec
     });
 
     return (
-        <div className='w-1/2 h-full bg-black text-white flex flex-col justify-between'>
+        <div className='w-1/2 h-full bg-gray-600 text-white flex flex-col justify-between'>
             <div>
                 <PageOptions setPageSize={setPageSize} />
                 {   

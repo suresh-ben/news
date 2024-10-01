@@ -35,7 +35,7 @@ export default function ContentOptions({ pageContent, setPageContent, selectedBo
 
             //ToDod
             selectedBox.content = {
-                ...content,
+                // ...content,
                 type: type
             }
 

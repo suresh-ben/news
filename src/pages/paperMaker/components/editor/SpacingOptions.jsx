@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Input from '../../../../components/Input';
+
 export default function SpacingOptions({setPageContent, selectedBoxIndexes, selectedBoxOptions}) {
 
     const updateSpace = (property, value) => {
@@ -25,13 +27,15 @@ export default function SpacingOptions({setPageContent, selectedBoxIndexes, sele
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Margin Right</p>
                         <div className='w-1/2 flex'>
-                            <input type="number" 
-                                className='w-[75%] text-black text-right' 
-                                value={selectedBoxOptions?.marginRight} 
+                            <Input 
+                                value={selectedBoxOptions?.marginRight}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateSpace('marginRight', value);
-                                }}    
+                                }}   
+                                textAlignClass='text-right'
+                                widthClass='w-[75%]'
+                                additionalClasses=''
                             />
                             <p className='ml-2 text-gray-500'>px</p>
                         </div>
@@ -39,13 +43,15 @@ export default function SpacingOptions({setPageContent, selectedBoxIndexes, sele
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Margin Left</p>
                         <div className='w-1/2 flex'>
-                            <input type="number" 
-                                className='w-[75%] text-black text-right' 
-                                value={selectedBoxOptions?.marginLeft} 
+                            <Input 
+                                value={selectedBoxOptions?.marginLeft}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateSpace('marginLeft', value);
-                                }}    
+                                }}   
+                                textAlignClass='text-right'
+                                widthClass='w-[75%]'
+                                additionalClasses=''
                             />
                             <p className='ml-2 text-gray-500'>px</p>
                         </div>
