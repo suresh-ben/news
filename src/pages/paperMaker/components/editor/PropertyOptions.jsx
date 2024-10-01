@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import useAssets from '../../../../hooks/useAssets';
+import Input from '../../../../components/Input';
 
 export default function PropertyOptions({ setPageContent, selectedBoxIndexes, selectedBoxOptions }) {
 
@@ -29,13 +30,13 @@ export default function PropertyOptions({ setPageContent, selectedBoxIndexes, se
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Background color</p>
                         <div className='w-1/2 flex'>
-                            <input type="color" 
-                                className='w-full text-black text-right' 
-                                value={selectedBoxOptions?.height} 
+                            <Input 
+                                type='color'
+                                value={selectedBoxOptions?.backgroundColor || '#ffffff'} 
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateProperty('backgroundColor', value);
-                                }}   
+                                }}  
                             />
                         </div>
                     </div>
@@ -63,7 +64,7 @@ export default function PropertyOptions({ setPageContent, selectedBoxIndexes, se
                                  }}   
                              />
                             <input  
-                                className='w-full text-black text-xs text-center' 
+                                className='w-full text-black text-xs text-center bg-blue-50' 
                                 value={assets[selectedBoxOptions?.backgroundImage]?.name || 'Choose an image'}
                                 onClick={() => inpRef?.current?.click()}
                                 disabled

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import BorderButton from '../../../../components/BorderButton';
+
 export default function HierarchyOptions({ pageContent, setPageContent, selectedBoxIndexes, setSelectedBoxIndexes }) {
 
     const moveToPreSib = () => {
@@ -121,17 +123,29 @@ export default function HierarchyOptions({ pageContent, setPageContent, selected
 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Move to Prior sibling</p>
-                        <button className='border-white border w-1/2' onClick={moveToPreSib} >{'<-'}</button>
+                        <BorderButton 
+                            onClick={moveToPreSib}
+                            label={'<-'}
+                            widthClass='w-1/2'
+                        />
                     </div>
 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Move to Parent</p>
-                        <button className='border-white border w-1/2' onClick={moveToParent} >{'<-*'}</button>
+                        <BorderButton 
+                            onClick={moveToParent}
+                            label={'<-*'}
+                            widthClass='w-1/2'
+                        />
                     </div>
 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Add Child</p>
-                        <button className='border-white border w-1/2' onClick={addBox} >+</button>
+                        <BorderButton 
+                            onClick={addBox}
+                            label={'+'}
+                            widthClass='w-1/2'
+                        />
                     </div>
 
                 </div>
@@ -140,17 +154,29 @@ export default function HierarchyOptions({ pageContent, setPageContent, selected
 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Move to Next sibling</p>
-                        <button className='border-white border w-1/2' onClick={moveNextSib} >{'->'}</button>
+                        <BorderButton 
+                            onClick={moveNextSib}
+                            label={'->'}
+                            widthClass='w-1/2'
+                        />
                     </div>
 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Move to First child</p>
-                        <button className='border-white border w-1/2' onClick={moveToFirstChild} >{'*->'}</button>
+                        <BorderButton 
+                            onClick={moveToFirstChild}
+                            label={'*->'}
+                            widthClass='w-1/2'
+                        />
                     </div>
 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Delete</p>
-                        <button className='border-white border w-1/2' onClick={deleteBox} >-</button>
+                        <BorderButton 
+                            onClick={deleteBox}
+                            label={'-'}
+                            widthClass='w-1/2'
+                        />
                     </div>
 
                 </div>

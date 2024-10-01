@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 
 import useAssets from '../../../../hooks/useAssets';
 
+import Input from '../../../../components/Input';
+
 import textCenter from '../../../../assets/text-center.png';
 import textJusticy from '../../../../assets/text-justify.png';
 import textLeft from '../../../../assets/text-left.png';
@@ -62,13 +64,15 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Font size:</p>
                         <div className='w-1/2 flex'>
-                            <input type="number" 
-                                className='w-[75%] text-black text-right' 
+                            <Input 
+                                type='number'
+                                widthClass='w-[75%]'
+                                textAlignClass='text-right'
                                 value={parseFloat(selectedBoxOptions.content?.fontSize == undefined? 1 : selectedBoxOptions.content?.fontSize)}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('fontSize', value == ''? '00' : value);
-                                }}   
+                                }}  
                             />
                             <p className='ml-2 text-gray-500'>rem</p>
                         </div>
@@ -77,9 +81,8 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Background color:</p>
                         <div className='w-1/2 flex'>
-                            <input 
-                                type="color" 
-                                className='w-full text-black text-right' 
+                            <Input 
+                                type='color'
                                 value={selectedBoxOptions.content?.backgroundColor || '#ffffff'}
                                 onChange={(e) => {
                                     const value = e.target.value;
@@ -92,13 +95,15 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Border radius:</p>
                         <div className='w-1/2 flex'>
-                            <input type="number" 
-                                className='w-[75%] text-black text-right' 
+                            <Input 
+                                type='number'
+                                widthClass='w-[75%]'
+                                textAlignClass='text-right'
                                 value={parseFloat(selectedBoxOptions?.content?.radius == undefined? 0 : selectedBoxOptions?.content?.radius)}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('radius', value || 0);
-                                }}   
+                                }} 
                             />
                             <p className='ml-2 text-gray-500'>%</p>
                         </div>
@@ -107,13 +112,15 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Border width:</p>
                         <div className='w-1/2 flex'>
-                            <input type="number" 
-                                className='w-[75%] text-black text-right' 
+                            <Input 
+                                type='number'
+                                widthClass='w-[75%]'
+                                textAlignClass='text-right'
                                 value={parseFloat(selectedBoxOptions?.content?.borderWidth || 0)}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('borderWidth', value || 0);
-                                }}   
+                                }}  
                             />
                             <p className='ml-2 text-gray-500'>px</p>
                         </div>
@@ -148,13 +155,15 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Line spacing:</p>
                         <div className='w-1/2 flex'>
-                            <input type="number" 
-                                className='w-[75%] text-black text-right' 
+                            <Input 
+                                type='number'
+                                widthClass='w-[75%]'
+                                textAlignClass='text-right'
                                 value={parseFloat(selectedBoxOptions.content?.lineHeight == undefined? 1 : selectedBoxOptions.content?.lineHeight)}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('lineHeight', value == ''? '00' : value);
-                                }}   
+                                }}  
                             />
                             <p className='ml-2 text-gray-500'>rem</p>
                         </div>
@@ -163,14 +172,13 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Font color:</p>
                         <div className='w-1/2 flex'>
-                            <input 
-                                type="color" 
-                                className='w-full text-black text-right' 
+                            <Input 
+                                type='color'
                                 value={selectedBoxOptions.content?.color || '#ffffff'}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('color', value)
-                                }}   
+                                }} 
                             />
                         </div>
                     </div>
@@ -200,14 +208,13 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Border color:</p>
                         <div className='w-1/2 flex'>
-                            <input 
-                                type="color" 
-                                className='w-full text-black text-right' 
+                            <Input 
+                                type='color'
                                 value={selectedBoxOptions.content?.borderColor || '#ffffff'}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateContentType('borderColor', value)
-                                }}   
+                                }}  
                             />
                         </div>
                     </div>
@@ -218,7 +225,7 @@ export default function TextContentConfigOptions({ pageContent, setPageContent, 
                 <div className='flex-1 flex'>
                     <textarea 
                         type="color" 
-                        className='w-full text-black min-h-[7rem]' 
+                        className='w-full text-black min-h-[7rem] bg-blue-50 rounded-sm shadow-black shadow-sm' 
                         value={selectedBoxOptions.content?.text || ''}
                         onChange={(e) => {
                             const value = e.target.value;

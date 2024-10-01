@@ -1,4 +1,5 @@
 import React from 'react'
+import Input from '../../../../components/Input';
 
 export default function SizingOptions({ setPageContent, selectedBoxIndexes, selectedBoxOptions }) {
 
@@ -25,14 +26,17 @@ export default function SizingOptions({ setPageContent, selectedBoxIndexes, sele
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Height</p>
                         <div className='w-1/2 flex'>
-                            <input type="number" 
-                                className='w-[75%] text-black text-right' 
-                                value={selectedBoxOptions?.height} 
+                            <Input 
+                                type='number'
+                                disabled={selectedBoxIndexes.length == 1}
+                                value={selectedBoxOptions?.height}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateSpace('height', value);
                                 }}   
-                                disabled={selectedBoxIndexes.length == 1} 
+                                textAlignClass='text-right'
+                                widthClass='w-[75%]'
+                                additionalClasses=''
                             />
                             <p className='ml-2 text-gray-500'>%</p>
                         </div>
@@ -45,14 +49,17 @@ export default function SizingOptions({ setPageContent, selectedBoxIndexes, sele
                     <div className='w-full mb-2 flex'>
                         <p className='w-1/2'>Width</p>
                         <div className='w-1/2 flex'>
-                            <input type="number" 
-                                className='w-[75%] text-black text-right' 
-                                value={selectedBoxOptions?.width} 
+                            <Input 
+                                type='number'
+                                disabled={selectedBoxIndexes.length == 1}
+                                value={selectedBoxOptions?.width}
                                 onChange={(e) => {
                                     const value = e.target.value;
                                     updateSpace('width', value);
-                                }}    
-                                disabled={selectedBoxIndexes.length == 1} 
+                                }}  
+                                textAlignClass='text-right'
+                                widthClass='w-[75%]'
+                                additionalClasses=''
                             />
                             <p className='ml-2 text-gray-500'>%</p>
                         </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Input from '../../../../components/Input';
 
 export default function PageOptions({ setPageSize }) {
 
@@ -18,16 +19,25 @@ export default function PageOptions({ setPageSize }) {
                 <p>Page Dimentions</p>
 
                 <div className='flex justify-center items-center'>
-                    <input type="text" className='w-[5rem] h-2rem mx-1 text-black text-center' 
+                    <Input 
+                        type='number'
                         value={width}
+                        widthClass='w-[5rem]'
+                        textAlignClass='text-center'
+                        additionalClasses='mx-1'
                         onChange={e => {
                             const val = e.target.value;
                             val.replace(/\D/g, '')
                             setWidth(Number(val));
                         }}
                     />
-                    <input type="text" className='w-[5rem] h-2rem mx-1 text-black text-center' 
+
+                    <Input 
+                        type='number'
                         value={height}
+                        widthClass='w-[5rem]'
+                        textAlignClass='text-center'
+                        additionalClasses='mx-1'
                         onChange={e => {
                             const val = e.target.value;
                             val.replace(/\D/g, '')
