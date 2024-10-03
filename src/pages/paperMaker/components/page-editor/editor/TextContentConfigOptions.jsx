@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import useAssets from "../../../../../hooks/useAssets";
 
@@ -13,7 +13,7 @@ import boldTextJusticy from "../../../../../assets/bold-text-justify.png";
 import boldTextLeft from "../../../../../assets/bold-text-left.png";
 import boldTextRight from "../../../../../assets/bold-text-right.png";
 
-import { TEXT_ALIGN_TYPES } from "../../../../../config/constants";
+import { TEXT_ALIGN_TYPES, FONTS } from "../../../../../config/constants";
 import Select from "../../../../../components/Select";
 
 export default function TextContentConfigOptions({
@@ -52,14 +52,14 @@ export default function TextContentConfigOptions({
             <p className="w-1/2">Font:</p>
             <div className="w-1/2 flex">
               <Select
+                value={selectedBoxOptions.content?.font || FONTS["Noto Sans Telugu"]}
                 onChange={(e) => {
                   const value = e.target.value;
+                  updateContentType("font", value || FONTS["Noto Sans Telugu"]);
                 }}
-                options={[
-                  { value: "font1", name: "Font 01" },
-                  { value: "font2", name: "Font 02" },
-                  { value: "font3", name: "Font 03" },
-                ]}
+                options={Object.keys(FONTS).sort().map(font => {
+                  return { value: font, name: font }
+                })}
               />
             </div>
           </div>
@@ -73,7 +73,7 @@ export default function TextContentConfigOptions({
                 textAlignClass="text-right"
                 value={parseFloat(
                   selectedBoxOptions.content?.fontSize == undefined
-                    ? 1
+                    ? 16
                     : selectedBoxOptions.content?.fontSize
                 )}
                 onChange={(e) => {
@@ -81,7 +81,7 @@ export default function TextContentConfigOptions({
                   updateContentType("fontSize", value == "" ? "00" : value);
                 }}
               />
-              <p className="ml-2 text-gray-500">rem</p>
+              <p className="ml-2 text-gray-500">px</p>
             </div>
           </div>
 

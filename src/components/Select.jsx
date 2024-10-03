@@ -15,8 +15,8 @@ export default function Select({
         className={`bg-blue-50 text-black shadow-sm shadow-black ${widthClass} ${borderClasses} ${otherClasses}`}
     >
         {
-            options?.map(option => {
-                return <option value={option.value}>{option.name}</option>
+            options?.map((option, ind) => {
+                return <option key={ind} value={option.value}>{option.name}</option>
             })
         }
     </select>

@@ -15,7 +15,6 @@ import saveImg from "../../../../assets/save.png";
 import PropertyOptions from "./editor/PropertyOptions";
 
 export default function Editor({
-  pageSize,
   setPageSize,
   pageContent,
   setPageContent,

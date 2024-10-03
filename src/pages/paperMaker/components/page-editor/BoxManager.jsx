@@ -5,7 +5,7 @@ export default function BoxManager({ boxes, indexes, selectedBoxIndexes, setSele
     <>
         {
             boxes.map((box, ind) => {
-                return <Box box={box} ind={ind} indexes={[...indexes, ind]} selectedBoxIndexes={selectedBoxIndexes} setSelectedBoxIndexes={setSelectedBoxIndexes} />
+                return <Box box={box} key={ind} indexes={[...indexes, ind]} selectedBoxIndexes={selectedBoxIndexes} setSelectedBoxIndexes={setSelectedBoxIndexes} />
             })
         }
     </>

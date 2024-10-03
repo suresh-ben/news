@@ -30,11 +30,11 @@ export default function Index() {
                 <Navbar />
                 <div className='flex-1 w-full flex'>
                     <Viewer pageSize={pageSize} pageContent={pageContent} selectedBoxIndexes={selectedBoxIndexes} setSelectedBoxIndexes={setSelectedBoxIndexes} />
-                    <Editor pageSize={pageSize} setPageSize={setPageSize} pageContent={pageContent} setPageContent={setPageContent} selectedBoxIndexes={selectedBoxIndexes} setSelectedBoxIndexes={setSelectedBoxIndexes} />
+                    <Editor setPageSize={setPageSize} pageContent={pageContent} setPageContent={setPageContent} selectedBoxIndexes={selectedBoxIndexes} setSelectedBoxIndexes={setSelectedBoxIndexes} />
                 </div>
             </div>
 
-            {/* <div className='p-5 h-full'>
+            {/* <div className='p-5 h-full flex justify-end items-end'>
                 <PDF pageContent={pageContent} pageSize={pageSize} selectedBoxIndexes={selectedBoxIndexes} />
             </div> */}
         </>
