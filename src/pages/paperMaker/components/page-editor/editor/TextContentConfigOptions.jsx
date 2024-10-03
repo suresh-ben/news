@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 
-import useAssets from "../../../../../hooks/useAssets";
 
 import Input from "../../../../../components/Input";
 
@@ -23,7 +22,10 @@ export default function TextContentConfigOptions({
   selectedBoxIndexes,
   selectedBoxOptions,
 }) {
-  const { assets, setAssets } = useAssets();
+
+  useEffect(() => {
+    updateContentType("fontWeight", "400")
+  }, [selectedBoxOptions.content?.font])
 
   const updateContentType = (property, value) => {
     setPageContent((pageContent) => {
