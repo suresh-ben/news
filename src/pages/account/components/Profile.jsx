@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-import arrow from '../../../assets/arrow.png';
-import logout from '../../../assets/logout.png';
+import arrow from '../../../assets/images/arrow.png';
+import logout from '../../../assets/images/logout.png';
 
 export default function Profile() {
 

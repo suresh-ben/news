@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import TextContentConfigOptions from "./TextContentConfigOptions";
 import ImgContentConfigOptions from "./ImgContentConfigOptions";
 
-import addImg from "../../../../../assets/add.png";
-import clearImg from "../../../../../assets/cross.png";
+import addImg from "../../../../../assets/images/add.png";
+import clearImg from "../../../../../assets/images/cross.png";
 
 import { CONTENT_TYPES } from "../../../../../config/constants";
 import Select from "../../../../../components/Select";

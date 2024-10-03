@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-import arrow from '../../../assets/arrow.png';
+import arrow from '../../../assets/images/arrow.png';
 
 //to get work object
 export default function Project({ heading, description }) {

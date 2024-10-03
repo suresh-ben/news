@@ -10,8 +10,8 @@ import SizingOptions from "./editor/SizingOptions";
 import HierarchyOptions from "./editor/HierarchyOptions";
 import ContentOptions from "./editor/ContentOptions";
 
-import downloadImg from "../../../../assets/download.png";
-import saveImg from "../../../../assets/save.png";
+import downloadImg from "../../../../assets/images/download.png";
+import saveImg from "../../../../assets/images/save.png";
 import PropertyOptions from "./editor/PropertyOptions";
 
 export default function Editor({

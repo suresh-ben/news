@@ -1,6 +1,6 @@
 import React from 'react'
 
-import introImg from '../../../assets/Intro.jpg';
+import introImg from '../../../assets/images/Intro.jpg';
 
 export default function Intro() {
     return (

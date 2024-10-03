@@ -4,17 +4,18 @@ import useAssets from "../../../../../hooks/useAssets";
 
 import Input from "../../../../../components/Input";
 
-import textCenter from "../../../../../assets/text-center.png";
-import textJusticy from "../../../../../assets/text-justify.png";
-import textLeft from "../../../../../assets/text-left.png";
-import textRight from "../../../../../assets/text-right.png";
-import boldTextCenter from "../../../../../assets/bold-text-center.png";
-import boldTextJusticy from "../../../../../assets/bold-text-justify.png";
-import boldTextLeft from "../../../../../assets/bold-text-left.png";
-import boldTextRight from "../../../../../assets/bold-text-right.png";
+import textCenter from "../../../../../assets/images/text-center.png";
+import textJusticy from "../../../../../assets/images/text-justify.png";
+import textLeft from "../../../../../assets/images/text-left.png";
+import textRight from "../../../../../assets/images/text-right.png";
+import boldTextCenter from "../../../../../assets/images/bold-text-center.png";
+import boldTextJusticy from "../../../../../assets/images/bold-text-justify.png";
+import boldTextLeft from "../../../../../assets/images/bold-text-left.png";
+import boldTextRight from "../../../../../assets/images/bold-text-right.png";
 
 import { TEXT_ALIGN_TYPES, FONTS } from "../../../../../config/constants";
 import Select from "../../../../../components/Select";
+import fonts from '../../../../../assets/fonts/index'
 
 export default function TextContentConfigOptions({
   pageContent,
@@ -159,7 +160,10 @@ export default function TextContentConfigOptions({
                   { value: "600", name: "Semi bold" },
                   { value: "700", name: "Bold" },
                   { value: "900", name: "Super bold" },
-                ]}
+                ].map(weightObject => {
+                  const isPresent = fonts[selectedBoxOptions.content.font || FONTS["Noto Sans Telugu"]].filter(FontInFontFamily => FontInFontFamily.fontWeight == weightObject.value)
+                  return (isPresent && isPresent.length > 0)? weightObject : null
+                }).filter(obj => obj != null)}
               />
             </div>
           </div>

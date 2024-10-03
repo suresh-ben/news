@@ -12,10 +12,10 @@ export const TEXT_ALIGN_TYPES = {
 
 export const FONTS = {
     'Noto Sans Telugu': 'Noto Sans Telugu',
-    // 'Mandali': 'Mandali',
+    'Gurajada': 'Gurajada',
+    'Mandali': 'Mandali',
     // 'Ramabhadra': 'Ramabhadra',
     // 'Hind Guntur': 'Hind Guntur',
-    // 'Gurajada': 'Gurajada',
     // 'Mallanna': 'Mallanna',
     // 'Suranna': 'Suranna',
     // 'Tenali Ramakrishna': 'Tenali Ramakrishna',
