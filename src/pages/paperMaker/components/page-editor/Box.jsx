@@ -16,7 +16,9 @@ export default function Box({
 
   return (
     <div
-      className={`flex flex-wrap items-start justify-start shadow hover:shadow-blue-300 cursor-pointer overflow-hidden ${
+      className={`flex flex-wrap items-start justify-start shadow hover:shadow-blue-300 cursor-pointer overflow-hidden
+        ${box.isFloating? 'absolute' : 'relative'}
+        ${
         JSON.stringify(selectedBoxIndexes) == JSON.stringify(indexes)
           ? "shadow shadow-green-300"
           : ""
@@ -43,6 +45,7 @@ export default function Box({
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
+        zIndex: (indexes?.length*100)+indexes[indexes?.length - 1]
       }}
       onClick={(e) => {
         e.stopPropagation();

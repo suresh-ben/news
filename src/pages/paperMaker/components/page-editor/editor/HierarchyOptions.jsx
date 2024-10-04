@@ -56,7 +56,7 @@ export default function HierarchyOptions({
     }
   };
 
-  const addBox = () => {
+  const addBox = (isFloating) => {
     const newBoxOptions = {
       height: "25",
       width: "25",
@@ -69,6 +69,7 @@ export default function HierarchyOptions({
       paddingTop: "5",
       paddingBottom: "5",
       children: [],
+      isFloating: isFloating
     };
     setPageContent((pageContent) => {
       const temp = JSON.stringify(pageContent);
@@ -142,7 +143,12 @@ export default function HierarchyOptions({
 
           <div className="w-full mb-2 flex">
             <p className="w-1/2">Add Child</p>
-            <BorderButton onClick={addBox} label={"+"} widthClass="w-1/2" />
+            <BorderButton onClick={() => addBox(false)} label={"+"} widthClass="w-1/2" />
+          </div>
+
+          <div className="w-full mb-2 flex">
+            <p className="w-1/2">Add Floating Child</p>
+            <BorderButton onClick={() => addBox(true)} label={"~"} widthClass="w-1/2" />
           </div>
         </div>
 
