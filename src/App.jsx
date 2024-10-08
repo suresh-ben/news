@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 
 import { AssetManagerContextProvider } from './contexts/AssetManger';
 
-import PaperMaker from './pages/paperMaker';
+import PaperMaker from './pages/pdfMaker';
 import Account from './pages/account';
 import Auth from './pages/auth';
 
